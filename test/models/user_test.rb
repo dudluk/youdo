@@ -27,13 +27,13 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test 'Should user not be valid when password is missing' do
-    @user.password_digest = ''
+    @user.password = ''
 
     assert_not @user.valid?
   end
 
   test 'Should user not be valid when password is too short' do
-    @user.password_digest = 'a' * 11
+    @user.password = 'a' * 11
 
     assert_not @user.valid?
   end

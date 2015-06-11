@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  breed: MyText
+  date_of_birth: 2015-06-11
+  user_id: 
+
+two:
+  name: MyText
+  breed: MyText
+  date_of_birth: 2015-06-11
+  user_id: 

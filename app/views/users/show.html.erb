@@ -1,1 +1,20 @@
 <h1><%= @user.name %></h1>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <%= link_to 'Add dog', new_dog_path %>
+  </div>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Breed</th>
+      <th>Date of birth</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <%= render @dogs %>
+    </tbody>
+  </table>
+</div>

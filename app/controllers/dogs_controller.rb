@@ -1,7 +1,6 @@
 class DogsController < ApplicationController
   before_action :is_authenticated_filter
   before_action :current_user_filter, only: [:edit, :show, :update]
-
   def new
     @dog = Dog.new
     render 'edit'

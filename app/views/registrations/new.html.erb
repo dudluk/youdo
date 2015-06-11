@@ -1,0 +1,25 @@
+<% provide(:title, 'Register dog') %>
+<h1>Register <%= @dog.name %></h1>
+
+<div class="row">
+  <div class="col-md-6">
+    <%= form_for [@dog, @registration] do |f| %>
+        <div class="radio">
+          <label>
+            <%= f.radio_button :valid_for, 3, checked: true%> 3 months - 25$
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <%= f.radio_button :valid_for, 6 %> 6 months - 45$
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <%= f.radio_button :valid_for, 12 %> 12 months - 85$
+          </label>
+        </div>
+        <%= f.submit 'Confirm', class: 'btn btn-primary' %>
+    <% end %>
+    </div>
+</div>

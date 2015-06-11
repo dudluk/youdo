@@ -11,7 +11,7 @@ class LoginController < ApplicationController
       log_in(user)
       redirect_to user
     else
-      flash.now[:invalid_login_data] = true
+      flash.now[:danger] = 'Invalid username/password'
       render 'view'
     end
   end

@@ -6,7 +6,7 @@ class LoginTest < ActionDispatch::IntegrationTest
     assert_template 'login/view'
     post login_path, session: { username: 'invalid', password: 'invalid'}
     assert_template 'login/view'
-    assert flash[:invalid_login_data]
+    assert flash[:danger]
     assert_nil session[:user_id]
   end
 

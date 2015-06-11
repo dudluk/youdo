@@ -26,19 +26,20 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(new_user_params)
-      flash.now[:successful_update] = true
+      flash[:success] = 'Your details has been updated'
+      redirect_to edit_user_path @user
+    else
+      render 'edit'
     end
-
-    render 'edit'
   end
 
   private
   def new_user_params
-    params.require(:user).permit(:name, :email, :username, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :username, :password, :password_confirmation, :postal_address)
   end
 
   def edit_user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:name, :email, :postal_address)
   end
 
   def current_user_filter

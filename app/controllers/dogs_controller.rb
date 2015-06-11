@@ -14,6 +14,7 @@ class DogsController < ApplicationController
     @dog = current_user.dogs.build(dog_params)
 
     if @dog.save
+      flash[:success] = 'Dog has been created'
       redirect_to current_user
     else
       render 'edit'
@@ -24,6 +25,7 @@ class DogsController < ApplicationController
     @dog = Dog.find(params[:id])
     @dog.update_attributes(dog_params)
     if @dog.save
+      flash[:success] = 'Dog has been updated'
       redirect_to current_user
     else
       render 'edit'

@@ -1,4 +1,4 @@
-class AccountController < ApplicationController
+class LoginController < ApplicationController
   def view
   end
 

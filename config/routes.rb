@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   root    :to       => 'static_pages#home'
   get     'signup'  => 'users#new'
-  get     'login'   => 'account#view'
-  post    'login'   => 'account#login'
-  delete  'logout'  => 'account#logout'
+  get     'login'   => 'login#view'
+  post    'login'   => 'login#login'
+  delete  'logout'  => 'login#logout'
 
   resources :users
 

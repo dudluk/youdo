@@ -26,7 +26,7 @@ class LoginTest < ActionDispatch::IntegrationTest
     get login_path
     assert_template 'login/view'
     post login_path, session: { username: login, password: password}
-        assert_not_nil session[:user_id]
+    assert_not_nil session[:user_id]
   end
 
   test 'log in and log out' do

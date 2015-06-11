@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :current_user_filter, only: [:edit, :show, :update]
   def new
     @user = User.new
   end
@@ -37,5 +38,12 @@ class UsersController < ApplicationController
 
   def edit_user_params
     params.require(:user).permit(:name, :email)
+  end
+
+  def current_user_filter
+    @user = User.find(params[:id])
+    if current_user != @user
+      redirect_to root_path
+    end
   end
 end

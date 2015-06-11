@@ -1,6 +1,6 @@
 class DogsController < ApplicationController
   before_action :is_authenticated_filter
-  before_action :current_user_filter, only: [:edit, :show, :update]
+  before_action :current_user_filter, only: [:edit, :show, :update, :destroy]
   def new
     @dog = Dog.new
     render 'edit'
@@ -28,6 +28,12 @@ class DogsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @dog = Dog.find(params[:id])
+    @dog.destroy
+    redirect_to current_user
   end
 
   private

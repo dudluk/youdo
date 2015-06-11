@@ -8,4 +8,5 @@
       <td><%= link_to 'Register', new_dog_registration_path(dog) %></td>
   <% end %>
   <td><%= link_to 'Edit', edit_dog_path(dog) %></td>
+  <td><%= link_to 'Delete', dog_path(dog), method: 'delete' %></td>
 </tr>

@@ -1,6 +1,6 @@
 class Dog < ActiveRecord::Base
   belongs_to :user
-  has_many :registrations
+  has_many :registrations, dependent: :delete_all
 
   validates :name,  presence: true
   validates :breed,  presence: true

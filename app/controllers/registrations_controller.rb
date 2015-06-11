@@ -9,7 +9,10 @@ class RegistrationsController < ApplicationController
     logger.info(params[:registration])
     registration = dog.registrations.build(registration_params)
 
-    registration.save
+    if registration.save
+      RegistrationMailer.registration(current_user, registration).deliver_now
+    end
+
     redirect_to current_user
   end
 

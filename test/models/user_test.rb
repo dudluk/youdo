@@ -7,10 +7,10 @@ class UserTest < ActiveSupport::TestCase
   PASSWORD = 'password123!'
 
   def setup
-    @user = User.new(name: 'Lukasz', email: 'lukasz.dudek@gmail.com', username: 'lukasz', password: PASSWORD)
+    @user = User.new(name: 'Username', email: 'user.name@gmail.com', username: 'username', password: PASSWORD)
   end
 
-  test 'Should be valid' do
+  test 'Should be valid created with correct data' do
     assert @user.valid?
   end
 
@@ -49,5 +49,4 @@ class UserTest < ActiveSupport::TestCase
 
     assert_not @user.authenticate('incorrect')
   end
-
 end

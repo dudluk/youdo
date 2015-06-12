@@ -1,0 +1,21 @@
+<% provide(:title, 'Users') %>
+
+<div class="row">
+  <div class="panel panel-default">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Postal address</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <%= render @users %>
+      </tbody>
+    </table>
+  </div>
+  <%= will_paginate  %>
+</div>

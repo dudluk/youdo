@@ -6,6 +6,10 @@ class DogsController < ApplicationController
     render 'edit'
   end
 
+  def index
+    @dogs = Dog.order(:name).includes(:user).paginate(page: params[:page], per_page: 10)
+  end
+
   def edit
     @dog = Dog.find(params[:id])
   end

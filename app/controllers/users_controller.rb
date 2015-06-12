@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
   before_action :current_user_filter, only: [:edit, :show, :update]
+
+  def index
+    @users = User.order(:name).paginate(page: params[:page], per_page: 10)
+  end
+
   def new
     @user = User.new
   end

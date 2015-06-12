@@ -1,12 +1,7 @@
 <tr>
   <td><%= dog.name %></td>
   <td><%= dog.breed %></td>
-  <td><%= dog.date_of_birth %></td>
-  <% if dog.registered_until  %>
+  <td><%= dog.user.name %></td>
+  <td><%= dog.user.email %></td>
   <td><%= dog.registered_until %></td>
-  <% else %>
-      <td><%= link_to 'Register', new_dog_registration_path(dog) %></td>
-  <% end %>
-  <td><%= link_to 'Edit', edit_dog_path(dog) %></td>
-  <td><%= link_to 'Delete', dog_path(dog), method: 'delete' %></td>
 </tr>

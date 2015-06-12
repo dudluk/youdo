@@ -1,6 +1,8 @@
 class DogsController < ApplicationController
-  before_action :is_authenticated_filter
+  before_action :authenticated_user_filter
   before_action :current_user_filter, only: [:edit, :show, :update, :destroy]
+  before_action :admin_user_filter, only: [:index]
+
   def new
     @dog = Dog.new
     render 'edit'
@@ -54,9 +56,4 @@ class DogsController < ApplicationController
     end
   end
 
-  def is_authenticated_filter
-   unless logged_in?
-      redirect_to root_path
-    end
-  end
 end

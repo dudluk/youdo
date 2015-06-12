@@ -15,4 +15,20 @@ module ApplicationHelper
   def logged_in?
     current_user != nil
   end
+
+  def admin?
+    logged_in? && current_user.admin
+  end
+
+  def authenticated_user_filter
+    unless logged_in?
+      redirect_to root_path
+    end
+  end
+
+  def admin_user_filter
+    unless admin?
+      redirect_to root_path
+    end
+  end
 end

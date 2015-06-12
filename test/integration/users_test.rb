@@ -48,10 +48,23 @@ class UsersTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_path
   end
 
+  test 'ignoring admin flag when creating user' do
+    login = 'sample_login'
+    user = create_user(login)
+
+    get signup_path
+    assert_template 'users/new'
+    post users_path, user: {name: 'Other user', email: 'asd@gmail.com', username: login, password: SAMPLE_PASSWORD, admin: true }
+
+    #I should check current_user.admin, but I don't know how to reference ApplicaitonHelper in correct way
+    get  users_path
+    assert_redirected_to root_path
+  end
+
   private
   def create_user(username)
-    user = User.new(name: 'User ' + username, email: username + '@gmail.com', username: username, password: SAMPLE_PASSWORD)
+    user = User.new(name: "User #{username}", email: "#{username}@gmail.com", username: username, password: SAMPLE_PASSWORD)
     user.save
-    return user
+    user
   end
 end

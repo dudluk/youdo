@@ -40,7 +40,9 @@ class DogsController < ApplicationController
 
   def destroy
     @dog = Dog.find(params[:id])
-    @dog.destroy
+    if @dog.destroy
+      flash[:danger] = 'Dog has been deleted'
+    end
     redirect_to current_user
   end
 
